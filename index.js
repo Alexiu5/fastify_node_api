@@ -2,10 +2,22 @@
 const fastify = require('./src/server');
 const routes = require('./src/routes/routes');
 const swagger = require('./src/config/swagger');
+const gql = require('graphql');
 
 require('dotenv').config();
+
+// Require GraphQL Schema
+const schema = require('./src/schema')
+
+// Define port via process enviroment
 const port = process.env.PORT;
 
+
+// Register Fastify GraphQL
+fastify.register(gql,{
+    schema,
+    graphiql: true
+})
 
 // Register routes
 routes.forEach((route) => {
