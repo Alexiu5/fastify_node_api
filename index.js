@@ -1,15 +1,11 @@
 "use-strict"
-const fastify = require('fastify')({logger: true});
-const mongoose = require('mongoose');
+const fastify = require('./src/server');
 const routes = require('./src/routes/routes');
 const swagger = require('./src/config/swagger');
 
 require('dotenv').config();
 const port = process.env.PORT;
 
-mongoose.connect('mongodb://localhost/mycargarage', {useNewUrlParser: true})
-    .then(()=> console.log('Mongodb connected....'))
-    .catch(err => console.error(err));
 
 // Register routes
 routes.forEach((route) => {
