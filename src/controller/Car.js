@@ -12,7 +12,7 @@ exports.getCars = async (req, reply) => {
 
 exports.getSingleCar = async (req, reply) => {
     try {
-        const {id} = req.params
+        const id = req.params === undefined ? req.id : req.params.id;
         const car = await Car.findById(id);
         return car;
     } catch (error) {
@@ -31,7 +31,7 @@ exports.addNewCar = async (req, reply) => {
 
 exports.updateCar = async (req, reply) => {
     try {
-        const {id} = req.params;
+        const id = req.params === undefined ? req.id : req.params.id;
         const car = req.body;
         const {...updatedCar} = car;
         const update = await Car.findByIdAndUpdate(id, updatedCar, {new: true});
@@ -43,7 +43,7 @@ exports.updateCar = async (req, reply) => {
 
 exports.deleteCar = async (req, reply) => {
     try {
-        const {id} = req.params;
+        const id = req.params === undefined ? req.id : req.params.id;
         const car = await Car.findByIdAndDelete(id);
         return car;
     } catch (error) {
