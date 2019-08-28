@@ -4,6 +4,7 @@
   "description": "Node js server imimplementing fastify as server side framework for development",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,7 +15,13 @@
   "author": "Alex",
   "license": "ISC",
   "dependencies": {
+    "@hapi/boom": "^7.4.3",
     "dotenv": "^8.1.0",
-    "fastify": "^2.7.1"
+    "fastify": "^2.7.1",
+    "fastify-swagger": "^2.4.0",
+    "mongoose": "^5.6.11"
+  },
+  "devDependencies": {
+    "nodemon": "^1.99.99"
   }
 }
