@@ -80,10 +80,33 @@ const serviceType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-        car: {},
-        cars: {},
-        owner: {},
-        service: {}
+        car: {
+            type: carType,
+            args: {id: {type: GraphQLID}},
+            async resolve(parent, args){
+                return await carController.getSingleCar({args})
+            }
+        },
+        cars: {
+            type: new GraphQLList(carType),
+            async resolve(parent, args){
+                return await carController.getCars()
+            }
+        },
+        owner: {
+            type: ownerType,
+            args: {id: {type: GraphQLID}},
+            async resolve(parent, args){
+                return await ownerController.getSingleOwner(args)
+            }
+        },
+        service: {
+            type: serviceType,
+            args: {id: {type: GraphQLID}},
+            async resolve(parent, args){
+                return await serviceController.getSingleService(args)
+            }
+        }
     }
 })
 
