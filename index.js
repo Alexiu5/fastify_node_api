@@ -2,7 +2,7 @@
 const fastify = require('./src/server');
 const routes = require('./src/routes/routes');
 const swagger = require('./src/config/swagger');
-const gql = require('graphql');
+const gql = require('fastify-gql')
 
 require('dotenv').config();
 

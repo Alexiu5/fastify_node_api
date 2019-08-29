@@ -1,5 +1,5 @@
 const boom = require('@hapi/boom');
-const Car = require('../models/car');
+const Car = require('../models/Car');
 
 exports.getCars = async (req, reply) => {
     try {
