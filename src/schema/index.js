@@ -43,13 +43,35 @@ const carType = new GraphQLObjectType({
 
 const ownerType = new GraphQLObjectType({
     name: 'Owner',
-    fields: () => ({})
+    fields: () => ({
+        _id: {type: GraphQLID},
+        firstName: {type: GraphQLString},
+        lastName: {type: GraphQLString},
+        email: {type: GraphQLString},
+        cars: {
+            type: new GraphQLList(carType),
+            async resolve(parent, args){
+                return await ownerController.getOwnersCars({id: parent._id})
+            }
+        }
+    })
 })
 
 
 const serviceType = new GraphQLObjectType({
     name: 'Service',
-    fields: () => ({})
+    fields: () => ({
+        _id: {type: GraphQLID},
+        car_id: {type: GraphQLID},
+        name: {type: GraphQLString},
+        date: {type: GraphQLString},
+        car: {
+            type: carType,
+            async resolve(parent, args){
+                return await carController.getSingleCar({id: parent.car_id})
+            }
+        }
+    })
 })
 
 
