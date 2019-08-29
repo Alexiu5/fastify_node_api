@@ -115,23 +115,40 @@ const Mutations = new GraphQLObjectType({
     fields: {
         addCar: {
             type: carType,
-            args: {},
+            args: {
+                title: {type: new GraphQLNonNull(GraphQLString)},
+                brand: {type: new GraphQLNonNull(GraphQLString)},
+                price: {type: GraphQLString},
+                age: {type: GraphQLInt},
+                owner_id: {type: GraphQLID}
+            },
             async resolve(args){
-                return ''
+                const response = await carController.addNewCar(args)
+                return response;
             }
         },
         editCar:{
             type: carType,
-            args: {},
+            args: {
+                title: {type: new GraphQLNonNull(GraphQLString)},
+                brand: {type: new GraphQLNonNull(GraphQLString)},
+                price: {type: new GraphQLNonNull(GraphQLString)},
+                age: {type: new GraphQLNonNull(GraphQLInt)},
+                owner_id: {type: GraphQLID}
+            },
             async resolve(args){
-                return ''
+                const response = await carController.updateCar(args)
+                return response;
             }
         },
         deleteCar: {
             type: carType,
-            args: {},
+            args: {
+                _id: {type: new GraphQLNonNull(GraphQLID)}
+            },
             async resolve(args){
-                return ''
+                const response = await carController.deleteCar(args)
+                return response;
             }
         }
     }
