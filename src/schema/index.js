@@ -29,7 +29,7 @@ const carType = new GraphQLObjectType({
         owner: {
             type: ownerType,
             async resolve(parent, args){
-                return await ownerController.getSingleOwner({id: parent.owner._id})
+                return await ownerController.getSingleOwner({id: parent.owner_id})
             }
         },
         services: {
