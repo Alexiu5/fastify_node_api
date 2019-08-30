@@ -1,4 +1,5 @@
 const carController = require('../controller/Car');
+const ownerController = require('../controller/Owner');
 
 const routes = [
     {
@@ -25,6 +26,16 @@ const routes = [
         method: 'DELETE',
         url: '/api/cars/:id',
         handler: carController.deleteCar
+    },
+    {
+        method: 'GET',
+        url: '/api/owners',
+        handler: ownerController.getOwner
+    },
+    {
+        method: 'GET',
+        url: '/api/owner/:id',
+        handler: ownerController.getSingleOwner
     }
 ];
 
