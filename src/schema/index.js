@@ -1,4 +1,10 @@
+// External imports
 const graphql = require('graphql');
+
+// Local imports
+const ownerSchema = require('./owner');
+const carSchema = require('./car');
+const serviceSchema = require('./service');
 
 const {
     GraphQLSchema,
@@ -16,63 +22,6 @@ const carController = require('../controller/Car');
 const ownerController = require('../controller/Owner');
 const serviceController = require('../controller/Services');
 
-// Define Object Types
-const carType = new GraphQLObjectType({
-    name: 'Car',
-    fields: ()=> ({
-        _id: {type: GraphQLID},
-        title: {type: GraphQLString},
-        brand: {type: GraphQLString},
-        price: {type: GraphQLString},
-        age: {type: GraphQLInt},
-        owner_id: {type: GraphQLID},
-        owner: {
-            type: ownerType,
-            async resolve(parent, args){
-                return await ownerController.getSingleOwner({id: parent.owner_id})
-            }
-        },
-        services: {
-            type: serviceType,
-            async resolve(parent, args){
-                return await serviceController.getCarsService({id: parent._id})
-            }
-        }
-    })
-})
-
-const ownerType = new GraphQLObjectType({
-    name: 'Owner',
-    fields: () => ({
-        _id: {type: GraphQLID},
-        firstName: {type: GraphQLString},
-        lastName: {type: GraphQLString},
-        email: {type: GraphQLString},
-        cars: {
-            type: new GraphQLList(carType),
-            async resolve(parent, args){
-                return await ownerController.getOwnersCars({id: parent._id})
-            }
-        }
-    })
-})
-
-
-const serviceType = new GraphQLObjectType({
-    name: 'Service',
-    fields: () => ({
-        _id: {type: GraphQLID},
-        car_id: {type: GraphQLID},
-        name: {type: GraphQLString},
-        date: {type: GraphQLString},
-        car: {
-            type: carType,
-            async resolve(parent, args){
-                return await carController.getSingleCar({id: parent.car_id})
-            }
-        }
-    })
-})
 
 
 // Define root query
@@ -81,27 +30,27 @@ const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
         car: {
-            type: carType,
+            type: carSchema.carType,
             args: {id: {type: GraphQLID}},
             async resolve(parent, args){
                 return await carController.getSingleCar({args})
             }
         },
         cars: {
-            type: new GraphQLList(carType),
+            type: new GraphQLList(carSchema.carType),
             async resolve(parent, args){
                 return await carController.getCars()
             }
         },
         owner: {
-            type: ownerType,
+            type: ownerSchema.ownerType,
             args: {id: {type: GraphQLID}},
             async resolve(parent, args){
                 return await ownerController.getSingleOwner(args)
             }
         },
         service: {
-            type: serviceType,
+            type: serviceSchema.serviceType,
             args: {id: {type: GraphQLID}},
             async resolve(parent, args){
                 return await serviceController.getSingleService(args)
@@ -114,7 +63,7 @@ const Mutations = new GraphQLObjectType({
     name: 'Mutations',
     fields: {
         addCar: {
-            type: carType,
+            type: carSchema.carType,
             args: {
                 title: {type: new GraphQLNonNull(GraphQLString)},
                 brand: {type: new GraphQLNonNull(GraphQLString)},
@@ -128,7 +77,7 @@ const Mutations = new GraphQLObjectType({
             }
         },
         editCar:{
-            type: carType,
+            type: carSchema.carType,
             args: {
                 title: {type: new GraphQLNonNull(GraphQLString)},
                 brand: {type: new GraphQLNonNull(GraphQLString)},
@@ -142,7 +91,7 @@ const Mutations = new GraphQLObjectType({
             }
         },
         deleteCar: {
-            type: carType,
+            type: carSchema.carType,
             args: {
                 _id: {type: new GraphQLNonNull(GraphQLID)}
             },
