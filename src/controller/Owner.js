@@ -32,3 +32,10 @@ exports.getOwnersCars = async (req) => {
         throw boom.boomify(error)
     }
 }
+
+
+exports.requesToken = async (req, reply) =>{ 
+    const token = fastify.jwt.sign({user:'alex', mail: 'alexius9000@gmail.com'})
+    req.owner = ({token})
+    return req.owner
+}

@@ -1,6 +1,6 @@
 const carController = require('../controller/Car');
 const ownerController = require('../controller/Owner');
-
+const fastify = require('../server')
 const routes = [
     {
         method: 'GET',
@@ -35,7 +35,16 @@ const routes = [
     {
         method: 'GET',
         url: '/api/owner/:id',
-        handler: ownerController.getSingleOwner
+        handler: ownerController.getSingleOwner,
+        
+    },
+    {
+        method: 'GET',
+        url: '/login',
+        handler: async function(req, reply) {
+            const token = fastify.jwt.sign({id:12, name: 'johan', lastname: 'higuita'})
+            reply.send(token);
+        }
     }
 ];
 

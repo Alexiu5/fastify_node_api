@@ -36,7 +36,6 @@ exports.rootQuery = new GraphQLObjectType({
             type: ownerSchema.ownerType,
             args: {id: {type: GraphQLID}},
             async resolve(parent, args){
-                console.log('hi')
                 return await ownerController.getSingleOwner(args)
             }
         },
