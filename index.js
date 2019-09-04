@@ -1,10 +1,12 @@
 "use-strict"
+const gql = require('fastify-gql');
+const helmet = require('fastify-helmet');
+const jwt = require('fastify-jwt');
+const cors = require('fastify-cors');
 
 const fastify = require('./src/server');
 const routes = require('./src/routes/routes');
 const swagger = require('./src/config/swagger');
-const gql = require('fastify-gql');
-const jwt = require('fastify-jwt');
 
 require('dotenv').config();
 
@@ -14,9 +16,11 @@ const schema = require('./src/schema')
 // Define port via process enviroment
 const port = process.env.PORT;
 
-// Register cors
+// Register helmet
+fastify.register(helmet, {});
 
-fastify.register(require('fastify-cors'), { 
+// Register cors
+fastify.register(cors, { 
     origin: '*',
     methods: ['GET', 'PUT', 'POST', 'PUT'],
 })

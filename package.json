@@ -22,6 +22,7 @@
     "fastify": "^2.7.1",
     "fastify-cors": "^2.1.3",
     "fastify-gql": "^1.4.0",
+    "fastify-helmet": "^3.0.1",
     "fastify-jwt": "^1.0.0",
     "fastify-swagger": "^2.4.0",
     "graphql": "^14.5.3",
