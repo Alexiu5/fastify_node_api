@@ -5,7 +5,6 @@ const routes = require('./src/routes/routes');
 const swagger = require('./src/config/swagger');
 const gql = require('fastify-gql');
 const jwt = require('fastify-jwt');
-const auth = require('./src/helpers/auth');
 
 require('dotenv').config();
 
@@ -33,9 +32,6 @@ fastify.register(jwt, {
     secret: 'alexsecretkey',
     decode: { complete: true },
 })
-
-// Add jwt hook    
-auth.defineAuth();
 
 // Register routes
 routes.forEach((route) => {
