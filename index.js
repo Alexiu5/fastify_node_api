@@ -45,6 +45,17 @@ routes.forEach((route) => {
 // Register Swagger
 fastify.register(require('fastify-swagger'), swagger.options);
 
+fastify.get('/', async function (req, reply) {
+    const query = `{
+        cars {
+          _id
+          title
+          price
+        }
+      }`
+    return reply.graphql(query)
+})
+
 // Defining servers
 const startServer = async () => {
     try {

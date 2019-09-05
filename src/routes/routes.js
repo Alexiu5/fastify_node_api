@@ -38,14 +38,6 @@ const routes = [
         handler: ownerController.getSingleOwner,
         
     },
-    {
-        method: 'GET',
-        url: '/login',
-        handler: async function(req, reply) {
-            const token = fastify.jwt.sign({id:12, name: 'johan', lastname: 'higuita'})
-            reply.send(token);
-        }
-    }
 ];
 
 module.exports = routes
