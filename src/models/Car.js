@@ -6,6 +6,7 @@ const carSchema = new mongoose.Schema({
     brand: String,
     price: String,
     age: Number,
+    imageUrl: String,
     owner_id: ObjectId
     
 });

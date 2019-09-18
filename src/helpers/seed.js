@@ -28,26 +28,26 @@ const cars = [
 ]
 
 const imageUrls = {
-    S: 'https://www.tesla.com/sites/tesla/files/curatedmedia/model-s%402x.jpg',
-    E: 'https://www.teslarati.com/wp-content/uploads/2018/09/White-Model3-Tesla-Range-e1537776348543.jpg',
-    X: 'https://www.tesla.com/sites/default/files/images/model-x/section-hero-background.jpg?20180607',
-    Y: 'https://www.tesla.com/sites/tesla/files/curatedmedia/model-y_R1%402.jpg',
-    GLA: 'https://www.mercedes-benz.com.co/passengercars/mercedes-benz-cars/models/gla/gla-suv/explore/vehicle-highlights/_jcr_content/highlightcontainer/image.MQ6.0.20180115103444.jpeg',
-    GLC: 'https://www.mercedes-benz.com/content/dam/brandhub/mercedes-benz/vehicles/passenger-cars/glc-class/the-new-glc-the-success-model/00-Mercedes-Benz-2019-GLC-300-4MATIC-X253-Facelift-designo-selenite-grey-magno-2560x1440.jpg',
-    GLE: 'https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/iol/2018/09/12/17022082/IOLmot12aug18_GLE_b.jpg',
-    GLS: 'https://www.mercedes-benz.com/en/vehicles/passenger-cars/gls/gls/_jcr_content/root/slider_0/sliderchilditems/slideritem/image/MQ6-0-image-20190417160601/01-mercedes-benz-gls-2019-x167-suv-3400x1440.jpeg',
-    X4: 'https://www.diariomotor.com/imagenes/picscache/1920x1600c/bmw_x4_2018_16-1_1920x1600c.jpg',
-    Z3: 'https://i.ytimg.com/vi/x-YhYyLYbvs/maxresdefault.jpg',
-    M2: 'https://www.actualidadmotor.com/wp-content/uploads/2015/10/bmw-m2-2016-16-e1444812551839.jpg',
-    S7: 'https://www.diariomotor.com/imagenes/picscache/1920x1600c/bmw-serie-7-todos-los-detalles-p90333104_highres_1920x1600c.jpg',
-    A1: 'https://www.diariomotor.com/imagenes/2018/06/audi-a1-motores-sin-diesel-02.jpg',
-    A3: 'https://cdn.motor1.com/images/mgl/qO86y/s1/audi-a3-2017.jpg',
-    A4: 'https://www.diariomotor.com/imagenes/picscache/1920x1600c/audi-a4-2020-7_1920x1600c.jpg',
-    A5: 'https://1.bp.blogspot.com/-mHXAQPsQemw/XMLQq46cMQI/AAAAAAAAfKs/HC7ROO-uYxs8UhezKwQ7KcKRAKRU64e1QCLcBGAs/s1600/Audi%2BA5%2BSportback%2B%25283%2529.jpg',
-    Fiesta: 'https://img.automexico.com/2019/02/12/WAgvsYYI/fiesta19-3dd8.jpg',
-    Focus: 'https://www.diariomotor.com/imagenes/picscache/1440x655c/ford-focus-st-2019-5_1440x655c.jpg',
-    Fusion: 'https://img.motoryracing.com/noticias/portada/25000/25800-n.jpg',
-    Mustang: 'https://noticias.coches.com/wp-content/uploads/2019/01/ford-mustang-shelby-gt500-2019-60.jpg'
+    "S" : 'https://www.tesla.com/sites/tesla/files/curatedmedia/model-s%402x.jpg',
+    "E" : 'https://www.teslarati.com/wp-content/uploads/2018/09/White-Model3-Tesla-Range-e1537776348543.jpg',
+    "X" : 'https://www.tesla.com/sites/default/files/images/model-x/section-hero-background.jpg?20180607',
+    "Y" : 'https://www.tesla.com/sites/tesla/files/curatedmedia/model-y_R1%402.jpg',
+    "GLA" : 'https://www.mercedes-benz.com.co/passengercars/mercedes-benz-cars/models/gla/gla-suv/explore/vehicle-highlights/_jcr_content/highlightcontainer/image.MQ6.0.20180115103444.jpeg',
+    "GLC" : 'https://www.mercedes-benz.com/content/dam/brandhub/mercedes-benz/vehicles/passenger-cars/glc-class/the-new-glc-the-success-model/00-Mercedes-Benz-2019-GLC-300-4MATIC-X253-Facelift-designo-selenite-grey-magno-2560x1440.jpg',
+    "GLE" : 'https://inm-baobab-prod-eu-west-1.s3.amazonaws.com/public/inm/media/image/iol/2018/09/12/17022082/IOLmot12aug18_GLE_b.jpg',
+    "GLS" : 'https://www.mercedes-benz.com/en/vehicles/passenger-cars/gls/gls/_jcr_content/root/slider_0/sliderchilditems/slideritem/image/MQ6-0-image-20190417160601/01-mercedes-benz-gls-2019-x167-suv-3400x1440.jpeg',
+    "X4" : 'https://www.diariomotor.com/imagenes/picscache/1920x1600c/bmw_x4_2018_16-1_1920x1600c.jpg',
+    "Z3" : 'https://i.ytimg.com/vi/x-YhYyLYbvs/maxresdefault.jpg',
+    "M2" : 'https://www.actualidadmotor.com/wp-content/uploads/2015/10/bmw-m2-2016-16-e1444812551839.jpg',
+    "S7" : 'https://www.diariomotor.com/imagenes/picscache/1920x1600c/bmw-serie-7-todos-los-detalles-p90333104_highres_1920x1600c.jpg',
+    "A1" : 'https://www.diariomotor.com/imagenes/2018/06/audi-a1-motores-sin-diesel-02.jpg',
+    "A3" : 'https://cdn.motor1.com/images/mgl/qO86y/s1/audi-a3-2017.jpg',
+    "A4" : 'https://www.diariomotor.com/imagenes/picscache/1920x1600c/audi-a4-2020-7_1920x1600c.jpg',
+    "A5" : 'https://1.bp.blogspot.com/-mHXAQPsQemw/XMLQq46cMQI/AAAAAAAAfKs/HC7ROO-uYxs8UhezKwQ7KcKRAKRU64e1QCLcBGAs/s1600/Audi%2BA5%2BSportback%2B%25283%2529.jpg',
+    "Fiesta" : 'https://img.automexico.com/2019/02/12/WAgvsYYI/fiesta19-3dd8.jpg',
+    "Focus" : 'https://www.diariomotor.com/imagenes/picscache/1440x655c/ford-focus-st-2019-5_1440x655c.jpg',
+    "Fusion" : 'https://img.motoryracing.com/noticias/portada/25000/25800-n.jpg',
+    "Mustang" : 'https://noticias.coches.com/wp-content/uploads/2019/01/ford-mustang-shelby-gt500-2019-60.jpg'
 }
 
 const serviceGarages = ['A++ Auto Services', "Gary's Garage", 'Super Service', 'iGarage', 'Best Service']
@@ -88,7 +88,7 @@ const generateCarData = ownersIds=>{
         const title = faker.random.arrayElement(carObject.models);
         const price = faker.random.number({min: 5000, max: 30000});
         const age = faker.random.number({min: 2, max: 10});
-        const imageUrl = imageUrls[carObject.models];
+        const imageUrl = imageUrls[title];
         const car = {
             owner_id,
             brand: carObject.name,
