@@ -3,7 +3,9 @@ const Car = require('../models/Car');
 
 exports.getCars = async (req, reply) => {
     try {
-        const cars = await Car.find();
+        const page = req.params.page === null ? parseInt(req.params.page) : 20;
+        const cars = await Car.find().limit(page);
+
         return cars;
     } catch (error) {
         throw boom.boomify(error);

@@ -23,6 +23,7 @@ exports.mutations = new GraphQLObjectType({
                 brand: {type: new GraphQLNonNull(GraphQLString)},
                 price: {type: GraphQLString},
                 age: {type: GraphQLInt},
+                imageUrl: {type: new GraphQLNonNull(GraphQLString)},
                 owner_id: {type: GraphQLID}
             },
             async resolve(args){
@@ -37,6 +38,7 @@ exports.mutations = new GraphQLObjectType({
                 brand: {type: new GraphQLNonNull(GraphQLString)},
                 price: {type: new GraphQLNonNull(GraphQLString)},
                 age: {type: new GraphQLNonNull(GraphQLInt)},
+                imageUrl: {type: new GraphQLNonNull(GraphQLString)},
                 owner_id: {type: GraphQLID}
             },
             async resolve(args){

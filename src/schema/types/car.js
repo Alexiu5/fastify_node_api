@@ -21,6 +21,7 @@ exports.carType = new GraphQLObjectType({
         brand: {type: GraphQLString},
         price: {type: GraphQLString},
         age: {type: GraphQLInt},
+        imageUrl: {type: GraphQLString},
         owner_id: {type: GraphQLID},
         owner: {
             type: ownerSchema.ownerType,
